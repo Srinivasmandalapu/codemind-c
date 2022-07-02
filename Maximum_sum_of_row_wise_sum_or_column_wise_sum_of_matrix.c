@@ -1,45 +1,45 @@
 #include<stdio.h>
 int main()
 {
-    int i,j,m,n,a[100][100],sum=0,max,sum2=0,max2;
-    scanf("%d%d",&n,&m);
-    for(i=0;i<n;i++)
+    int r,c,i,j,arr[100][100],sum=0,h=0,p=0,sum2=0;
+    scanf("%d%d",&r,&c);
+    for(i=0;i<r;i++)
     {
-        for(j=0;j<m;j++)
+        for(j=0;j<c;j++)
         {
-            scanf("%d",&a[i][j]);
+            scanf("%d",&arr[i][j]);
         }
     }
-    for(i=0;i<n;i++)
+    for(i=0;i<r;i++)
     {
         sum=0;
-        for(j=0;j<m;j++)
+        for(j=0;j<c;j++)
         {
-            sum+=a[i][j];
+            sum=sum+arr[i][j];
         }
-        if(max<sum)
-        {
-            max=sum;
-        }
-    }
-    for(j=0;j<m;j++)
+    if(h<sum)
     {
-        sum2=0;
-        for(i=0;i<n;i++)
-        {
-            sum2+=a[i][j];
-        }
-        if(max2<sum)
-        {
-            max2=sum2;
-        }
+        h=sum;
     }
-    if(max2>max)
-    {
-        printf("%d",max2);
-    }
-    else
-    {
-        printf("%d",max);
-    }
+      }
+     for(j=0;j<c;j++)
+     {
+         sum2=0;
+         for(i=0;i<r;i++)
+         {
+             sum2=sum2+arr[i][j];
+         }
+         if(p<sum2)
+         {
+             p=sum2;
+         }
+     }
+     if(h>p)
+     {
+         printf("%d",h);
+     }
+     else
+     {
+         printf("%d",p);
+     }
 }
