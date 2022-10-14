@@ -1,53 +1,52 @@
 #include<stdio.h>
-int is_reverse(int n)
+int is_palindrome(int n)
 {
-    int rev=0,d,temp;
-    temp=n;
+    int rev=0,t,d;
+    t=n;
     while(n!=0)
     {
         d=n%10;
         n=n/10;
         rev=rev*10+d;
     }
-    if(temp==rev)
+    if(rev==t)
     {
-        return true;
+        return 1;
     }
-    else
-    {
-        return false;
-    }
+    return 0;
 }
 int main()
 {
-    int n,i,np,pp;
+    int n,i,p,q,d,e;
     scanf("%d",&n);
     for(i=n+1;i<=n+100;i++)
     {
-        if(is_reverse(i))
+        if(is_palindrome(i))
         {
-            np=i;
-            break;
+        p=i;
+        d=p-n;
+        break;
         }
     }
     for(i=n-1;i>=0;i--)
     {
-        if(is_reverse(i))
+        if(is_palindrome(i))
         {
-            pp=i;
-            break;
+        q=i;
+        e=n-q;
+        break;
         }
     }
-    if(np-n>n-pp)
+    if(d<e)
     {
-        printf("%d",pp);
+        printf("%d",p);
     }
-    else if(np-n==n-pp)
+    else if(d>e)
     {
-        printf("%d %d",pp,np);
+        printf("%d",q);
     }
     else
     {
-        printf("%d",np);
+        printf("%d %d",q,p);
     }
 }
